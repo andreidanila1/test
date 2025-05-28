@@ -10,7 +10,8 @@ env:
   USERNAME: github-actions
 
 jobs:
-  build_package:
+  build_arm64_package:
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout Package Repository (this repo)
         uses: actions/checkout@v4
