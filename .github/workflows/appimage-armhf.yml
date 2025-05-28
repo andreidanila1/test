@@ -28,6 +28,12 @@ jobs:
           path: scopy
           ref: main-pkg-manager
 
+      - name: Check package generator
+        run: |
+          cd $GITHUB_WORKSPACE/scopy/tools/packagegenerator
+          pip3 install -r requirements.txt
+          python3 ./package_generator.py -h
+
       - name: Pull the Docker Image
         run: docker pull cristianbindea/scopy2-armhf-appimage:latest
 
