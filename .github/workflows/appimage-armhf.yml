@@ -55,7 +55,7 @@ jobs:
                                       sudo chown -R runner:runner scopy && \
                                       cd $HOME/scopy && \
                                       ./ci/arm/arm_build_process.sh arm32 install_packages move_tools move_sysroot build_scopy
-                                      python3 ./package_generator.py -a $PWD/build/packages/$REPO_NAME $PWD/build/packages/'
+                                      python3 ./package_generator.py -a --src=$PWD/build/packages/$REPO_NAME --dest=$PWD/build/packages/'
 
       - name: Set short git commit SHA
         shell: bash
