@@ -54,10 +54,7 @@ jobs:
                       /bin/bash -c    'cd $HOME && \
                                       sudo chown -R runner:runner scopy && \
                                       cd $HOME/scopy && \
-                                      ./ci/arm/arm_build_process.sh arm64 install_packages move_tools move_sysroot build_scopy
-                                      ls $PWD/build
-                                      ls $PWD/build/packages
-                                      mv $PWD/build/packages/$REPO_NAME $GITHUB_WORKSPACE || echo "Package directory not found!"'
+                                      ./ci/arm/arm_build_process.sh arm64 install_packages move_tools move_sysroot build_scopy'
 
       - name: Set short git commit SHA
         shell: bash
@@ -65,4 +62,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: linux-arm64-${{ env.REPO_NAME }}
-          path: ${{ github.workspace }}/${{ env.REPO_NAME }}
+          path: ${{ github.workspace }}/scopy/build/packages/${{ env.REPO_NAME }}
