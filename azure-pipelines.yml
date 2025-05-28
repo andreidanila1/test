@@ -7,7 +7,7 @@ resources:
   repositories:
   - repository: scopy
     type: github
-    endpoint: put_endpoint_here
+    endpoint: scopy_github_connection
     name: analogdevicesinc/scopy
     ref: pkg-man-test
 
@@ -100,7 +100,7 @@ stages:
       displayName: 'Push to continuous release'
       condition: and(succeeded(), and(ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master')))
       inputs:
-        githubConnection: put_your_github_connection_here
+        githubConnection: pkg_test
         repositoryName: $(Build.Repository.Name)
         action: edit
         tag: continous
