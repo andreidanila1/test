@@ -35,18 +35,11 @@ jobs:
         id: repo
         run: echo "REPO_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
 
-      - name: Create Scopy AppImage
+      - name: Build package
         shell: bash
         run: |
-              echo 'ls $GITHUB_WORKSPACE'
-              ls $GITHUB_WORKSPACE
-              echo 'ls $GITHUB_WORKSPACE/scopy'
-              ls $GITHUB_WORKSPACE/scopy
-              echo 'ls $GITHUB_WORKSPACE/scopy'
-              ls $GITHUB_WORKSPACE/scopy
-              echo 'ls $GITHUB_WORKSPACE/package'
-              ls $GITHUB_WORKSPACE/package
-              mkdir -p $GITHUB_WORKSPACE/scopy/$REPO_NAME 
+              echo 'Copy package to scopy/packages'
+              mkdir -p $GITHUB_WORKSPACE/scopy/packages/$REPO_NAME 
               cp -r $GITHUB_WORKSPACE/package/* $GITHUB_WORKSPACE/scopy/packages/$REPO_NAME/
               
               cd $GITHUB_WORKSPACE/scopy
